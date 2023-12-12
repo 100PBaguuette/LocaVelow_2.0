@@ -45,26 +45,7 @@
               <%= bicycle.accessories.first&.name %>
             </li>
             </p>
-          </ul>  
-          <li>
-            Catégorie :
-            <%= bicycle.bicycle_type %>
-          </li>
-          </p>
-          <p>
-          <li>
-            <strong>Taille :</strong>
-            <%= bicycle.size %>
-          </li>
-          </p>
-          <p>
-          <li>
-            <strong>Etat :</strong>
-            <%= bicycle.condition %>
-          </li>
-          </p>
-          <p>
-          <li>
+          </ul>
           <strong>Accessoires :</strong>
           <% if bicycle.accessories.present? %>
             <%= bicycle.accessories.map(&:name).join(', ') %>

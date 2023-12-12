@@ -55,24 +55,23 @@
                   </td>
                   <td class="align-middle text-center text-sm">
                     <ul class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><%= bicycle.rentals.count %></a>
+                      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><%= bicycle.rentals.count %></a>
   
-  <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);" data-popper-placement="bottom-start">
-    <h6 class="dropdown-header">Cliquez sur une des locations pour voir plus d'options</h6>
+                      <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);" data-popper-placement="bottom-start">
+                        <h6 class="dropdown-header">Cliquez sur une des locations pour voir plus d'options</h6>
 
-    <% bicycle.rentals.each do |rental| %>
-      <a class="dropdown-item" href="<%= rental_path(rental) %>">Location <%= rental.id %></a>
-    <% end %>
-  </div>
-</ul>
-
+                        <% bicycle.rentals.each do |rental| %>
+                          <a class="dropdown-item" href="<%= rental_path(rental) %>">Location <%= rental.id %></a>
+                        <% end %>
+                      </div>
+                    </ul>
                   </td>
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold"><%= number_to_currency(bicycle.price_per_hour, unit: '€') %></span>
                   </td>
                   <td class="align-middle">
-                  <%= link_to "Voir l'annonce", bicycle, class: "btn btn-primary btn-sm d-flex justify-content-center mt-2" %>              
-                </td>
+                    <%= link_to "Voir l'annonce", bicycle, class: "btn btn-primary btn-sm d-flex justify-content-center mt-2" %>              
+                  </td>
                 </tr>
               <% end %>
             </tbody>
@@ -84,23 +83,6 @@
         <%= link_to "Nouvelle annonce", new_bicycle_path, class: "btn btn-outline-light btn-sm", style: "background-color: #FFDE8C; color: #506191; border-radius: 25px" %>
       </li>
     </div>
-
-    <div class="col-md-6 mx-auto">
-      <h3 class="mb-3 mt-6">Mes locations</h3>
-      <ul class="list-group">
-        <% user.rentals.each do |rental| %>
-          <li class="list-group-item">
-            <h5 class="text-center"><strong>Vélo :</strong> <%= rental.bicycle.model %></h5><br>
-            <strong>Ville :</strong> <%= rental.bicycle.city %><br>
-            <strong>De :</strong> <%= rental.start_date.strftime('%Y-%m-%d %H:%M') %><br>
-            <strong>À :</strong> <%= rental.end_date.strftime('%Y-%m-%d %H:%M') %><br>
-            <strong>Statut :</strong> <%= rental.rental_status.humanize %><br>
-            <strong>Coût total :</strong> <%= number_to_currency(rental.total_cost, unit: '€') %>
-            <br>
-            <%= link_to "Voir la location", rental, class: "btn btn-secondary btn-sm d-flex justify-content-center mt-2" %>
-          </li>
-        <% end %>
-      </ul>
 
     <div class="col-md-12 mt-6">
       <h3 class="mb-3">Mes locations</h3>
@@ -152,8 +134,8 @@
         </div>
       </div>
       <li class="list-group-item mt-3">
-       <%= link_to "Nouveau vélo", bicycles_path, class: "btn btn-outline-light btn-sm", style: "background-color: #FFDE8C; color: #506191; border-radius: 25px" %>
-    </li>
+        <%= link_to "Nouveau vélo", bicycles_path, class: "btn btn-outline-light btn-sm", style: "background-color: #FFDE8C; color: #506191; border-radius: 25px" %>
+      </li>
     </div>
   </div>
 </div>
